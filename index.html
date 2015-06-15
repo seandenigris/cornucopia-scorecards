@@ -20,7 +20,8 @@
             //used for all new packages in IDE
             'transport.defaultAmdNamespace': "amber-cornucopiascorecards"
           });
-          require(["amber-ide-starter-dialog"], function (dlg) { dlg.start(); });
+          var isDev = location.search.indexOf("isDev=true") > -1;
+          if (isDev) require(["amber-ide-starter-dialog"], function (dlg) { dlg.start(); });
           amber.globals.CornucopiaScorecardsApp._start();
       });
   </script>
