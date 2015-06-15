@@ -9,54 +9,46 @@ selector: "downloadAll",
 protocol: '*CornucopiaScorecards-Platform',
 fn: function (){
 var self=this;
+var response;
 function $JQuery(){return $globals.JQuery||(typeof JQuery=="undefined"?nil:JQuery)}
 function $CrEggSupplier(){return $globals.CrEggSupplier||(typeof CrEggSupplier=="undefined"?nil:CrEggSupplier)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
-$recv($recv($JQuery())._current())._getJSON_onSuccess_("./egg_suppliers.json",(function(json){
-var suppliers;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx2) {
-//>>excludeEnd("ctx");
-suppliers=$recv(json)._collect_((function(e){
+var $1;
+response=$recv($recv($JQuery())._current())._ajax_($globals.HashedCollection._newFromPairs_(["dataType","json","url","./egg_suppliers.json","async",false]));
+$1=$recv($recv(response)._responseJSON())._collect_((function(e){
 var supplier;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx3) {
+return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
 supplier=$recv($CrEggSupplier())._new();
 supplier;
 $recv(e)._keysAndValuesDo_((function(k,v){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx4) {
+return $core.withContext(function($ctx3) {
 //>>excludeEnd("ctx");
-return $recv(supplier)._instVarAt_put_(k,v);
+return $recv(supplier)._instVarNamed_put_(k,v);
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx4) {$ctx4.fillBlock({k:k,v:v},$ctx3,3)});
+}, function($ctx3) {$ctx3.fillBlock({k:k,v:v},$ctx2,2)});
 //>>excludeEnd("ctx");
 }));
 return supplier;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx3) {$ctx3.fillBlock({e:e,supplier:supplier},$ctx2,2)});
+}, function($ctx2) {$ctx2.fillBlock({e:e,supplier:supplier},$ctx1,1)});
 //>>excludeEnd("ctx");
 }));
-suppliers;
-return self._all_(suppliers);
+return $1;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({json:json,suppliers:suppliers},$ctx1,1)});
-//>>excludeEnd("ctx");
-}));
-return self;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"downloadAll",{},$globals.CrEggSupplier.klass)});
+}, function($ctx1) {$ctx1.fill(self,"downloadAll",{response:response},$globals.CrEggSupplier.klass)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "downloadAll\x0a\x0a\x09JQuery current\x0a\x09\x09getJSON: './egg_suppliers.json'\x0a\x09\x09onSuccess: [ :json | | suppliers |\x0a\x09\x09\x09suppliers := json collect: [ :e |\x0a\x09\x09\x09\x09| supplier |\x0a\x09\x09\x09\x09supplier := CrEggSupplier new.\x0a\x09\x09\x09\x09e keysAndValuesDo: [ :k :v | supplier instVarAt: k put: v ].\x0a\x09\x09\x09\x09supplier ].\x0a\x09\x09\x09self all: suppliers ].",
+source: "downloadAll\x0a\x09\x22This must be done syncronously. Solution adapted from http://stackoverflow.com/questions/13009755/getjson-synchronous\x22\x0a\x0a\x09| response |\x0a\x09response := JQuery current ajax: #{ #dataType -> 'json'. #url -> './egg_suppliers.json'. #async -> false }.\x0a\x09^ response responseJSON collect: [ :e |\x0a\x09\x09| supplier |\x0a\x09\x09supplier := CrEggSupplier new.\x0a\x09\x09e keysAndValuesDo: [ :k :v | supplier instVarNamed: k put: v ].\x0a\x09\x09supplier ].",
 referencedClasses: ["JQuery", "CrEggSupplier"],
 //>>excludeEnd("ide");
-messageSends: ["getJSON:onSuccess:", "current", "collect:", "new", "keysAndValuesDo:", "instVarAt:put:", "all:"]
+messageSends: ["ajax:", "current", "collect:", "responseJSON", "new", "keysAndValuesDo:", "instVarNamed:put:"]
 }),
 $globals.CrEggSupplier.klass);
 

@@ -1,6 +1,6 @@
 define("amber-cornucopiascorecards/CornucopiaScorecardsApp", ["amber/boot"
 //>>excludeStart("imports", pragmas.excludeImports);
-, "amber/jquery/Wrappers-JQuery", "amber/web/Web", "silk/Silk"
+, "amber/jquery/Wrappers-JQuery"
 //>>excludeEnd("imports");
 , "amber_core/Kernel-Objects"], function($boot
 //>>excludeStart("imports", pragmas.excludeImports);
@@ -10,7 +10,7 @@ define("amber-cornucopiascorecards/CornucopiaScorecardsApp", ["amber/boot"
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 $core.addPackage('CornucopiaScorecardsApp');
 $core.packages["CornucopiaScorecardsApp"].innerEval = function (expr) { return eval(expr); };
-$core.packages["CornucopiaScorecardsApp"].imports = ["amber/jquery/Wrappers-JQuery", "amber/web/Web", "silk/Silk"];
+$core.packages["CornucopiaScorecardsApp"].imports = ["amber/jquery/Wrappers-JQuery"];
 $core.packages["CornucopiaScorecardsApp"].transport = {"type":"amd","amdNamespace":"amber-cornucopiascorecards"};
 
 $core.addClass('CornucopiaScorecardsApp', $globals.Object, [], 'CornucopiaScorecardsApp');
@@ -23,41 +23,8 @@ var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
-var $1;
-$1="#amber-with"._asJQuery();
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["asJQuery"]=1;
-//>>excludeEnd("ctx");
-$recv($1)._click_((function(){
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx2) {
-//>>excludeEnd("ctx");
-return self._doAmberWith();
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({},$ctx1,1)});
-//>>excludeEnd("ctx");
-}));
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["click:"]=1;
-//>>excludeEnd("ctx");
-$recv("#silk-tag"._asSilk())._on_bind_("click",(function(){
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx2) {
-//>>excludeEnd("ctx");
-return self._doSilkTAG();
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({},$ctx1,2)});
-//>>excludeEnd("ctx");
-}));
-$recv("#jquery-append"._asJQuery())._click_((function(){
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx2) {
-//>>excludeEnd("ctx");
-return self._doJQueryAppend();
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({},$ctx1,3)});
-//>>excludeEnd("ctx");
-}));
+self._initializeSupplierAutoComplete();
+self._listSuppliers();
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"augmentPage",{},$globals.CornucopiaScorecardsApp)});
@@ -65,96 +32,95 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "augmentPage\x0a\x09'#amber-with' asJQuery click: [ self doAmberWith ].\x0a\x09'#silk-tag' asSilk on: #click bind: [ self doSilkTAG ].\x0a\x09'#jquery-append' asJQuery click: [ self doJQueryAppend ]",
+source: "augmentPage\x0a\x09self initializeSupplierAutoComplete.\x0a\x09self listSuppliers.",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: ["click:", "asJQuery", "doAmberWith", "on:bind:", "asSilk", "doSilkTAG", "doJQueryAppend"]
+messageSends: ["initializeSupplierAutoComplete", "listSuppliers"]
 }),
 $globals.CornucopiaScorecardsApp);
 
 $core.addMethod(
 $core.method({
-selector: "doAmberWith",
-protocol: 'action',
+selector: "initializeSupplierAutoComplete",
+protocol: 'private-starting',
 fn: function (){
 var self=this;
-var tag;
-function $HTMLCanvas(){return $globals.HTMLCanvas||(typeof HTMLCanvas=="undefined"?nil:HTMLCanvas)}
+function $CrEggSupplier(){return $globals.CrEggSupplier||(typeof CrEggSupplier=="undefined"?nil:CrEggSupplier)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
-tag=$recv($recv($HTMLCanvas())._onJQuery_("#output-list"._asJQuery()))._root();
-$recv(tag)._with_((function(html){
+$recv("#suppliers"._asJQuery())._autocomplete_($globals.HashedCollection._newFromPairs_(["source",(function(req,res){
+var matches,matchStrings;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
-return $recv($recv(html)._li())._with_("Amber Web #with: added me!");
+matches=$recv($CrEggSupplier())._brandsStartingWith_($recv(req)._term());
+matches;
+matchStrings=$recv(matches)._collect_((function(e){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({html:html},$ctx1,1)});
+return $core.withContext(function($ctx3) {
+//>>excludeEnd("ctx");
+return $recv(e)._printString();
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx3) {$ctx3.fillBlock({e:e},$ctx2,2)});
 //>>excludeEnd("ctx");
 }));
+matchStrings;
+return $recv(res)._value_(matchStrings);
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["with:"]=1;
+}, function($ctx2) {$ctx2.fillBlock({req:req,res:res,matches:matches,matchStrings:matchStrings},$ctx1,1)});
 //>>excludeEnd("ctx");
+})]));
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"doAmberWith",{tag:tag},$globals.CornucopiaScorecardsApp)});
+}, function($ctx1) {$ctx1.fill(self,"initializeSupplierAutoComplete",{},$globals.CornucopiaScorecardsApp)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "doAmberWith\x0a\x09| tag |\x0a\x09tag := (HTMLCanvas onJQuery: '#output-list' asJQuery) root.\x0a\x09tag with: [ :html | html li with: 'Amber Web #with: added me!' ]",
-referencedClasses: ["HTMLCanvas"],
+source: "initializeSupplierAutoComplete\x0a\x09'#suppliers' asJQuery autocomplete: #{ 'source' -> [ :req :res |\x0a\x09\x09| matches matchStrings | \x0a\x09\x09matches := CrEggSupplier brandsStartingWith: req term.\x0a\x09\x09matchStrings := matches collect: [ :e | e printString ].\x0a\x09\x09res value: matchStrings ] }.",
+referencedClasses: ["CrEggSupplier"],
 //>>excludeEnd("ide");
-messageSends: ["root", "onJQuery:", "asJQuery", "with:", "li"]
+messageSends: ["autocomplete:", "asJQuery", "brandsStartingWith:", "term", "collect:", "printString", "value:"]
 }),
 $globals.CornucopiaScorecardsApp);
 
 $core.addMethod(
 $core.method({
-selector: "doJQueryAppend",
-protocol: 'action',
+selector: "listSuppliers",
+protocol: 'private-starting',
 fn: function (){
 var self=this;
+function $CrEggSupplier(){return $globals.CrEggSupplier||(typeof CrEggSupplier=="undefined"?nil:CrEggSupplier)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
-$recv("#output-list"._asJQuery())._append_("<li>jQuery append added me!</li>");
+var $1,$2;
+$recv($recv($CrEggSupplier())._allAphabeticalByBrand())._do_((function(e){
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx2) {
+//>>excludeEnd("ctx");
+$1="#supplier-list"._asJQuery();
+$2=$recv("<li>".__comma($recv(e)._printString())).__comma("</li>");
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx2.sendIdx[","]=1;
+//>>excludeEnd("ctx");
+return $recv($1)._append_($2);
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx2) {$ctx2.fillBlock({e:e},$ctx1,1)});
+//>>excludeEnd("ctx");
+}));
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"doJQueryAppend",{},$globals.CornucopiaScorecardsApp)});
+}, function($ctx1) {$ctx1.fill(self,"listSuppliers",{},$globals.CornucopiaScorecardsApp)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "doJQueryAppend\x0a\x09'#output-list' asJQuery append: '<li>jQuery append added me!</li>'",
-referencedClasses: [],
+source: "listSuppliers\x0a\x09CrEggSupplier allAphabeticalByBrand do: [ :e | '#supplier-list' asJQuery append: '<li>', e printString, '</li>' ]",
+referencedClasses: ["CrEggSupplier"],
 //>>excludeEnd("ide");
-messageSends: ["append:", "asJQuery"]
-}),
-$globals.CornucopiaScorecardsApp);
-
-$core.addMethod(
-$core.method({
-selector: "doSilkTAG",
-protocol: 'action',
-fn: function (){
-var self=this;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) {
-//>>excludeEnd("ctx");
-$recv("#output-list"._asSilk())._LI_("Silk TAG: added me!");
-return self;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"doSilkTAG",{},$globals.CornucopiaScorecardsApp)});
-//>>excludeEnd("ctx");
-},
-//>>excludeStart("ide", pragmas.excludeIdeData);
-args: [],
-source: "doSilkTAG\x0a\x09'#output-list' asSilk LI: 'Silk TAG: added me!'",
-referencedClasses: [],
-//>>excludeEnd("ide");
-messageSends: ["LI:", "asSilk"]
+messageSends: ["do:", "allAphabeticalByBrand", "append:", "asJQuery", ",", "printString"]
 }),
 $globals.CornucopiaScorecardsApp);
 

@@ -1,4 +1,7 @@
 /node_modules/
 /bower_components/
+.DS_Store
+*.swp
+egg_suppliers.json
 
 /test_runner.js

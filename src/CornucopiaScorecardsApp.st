@@ -1,31 +1,28 @@
 Smalltalk createPackage: 'CornucopiaScorecardsApp'!
-(Smalltalk packageAt: 'CornucopiaScorecardsApp') imports: {'amber/jquery/Wrappers-JQuery'. 'amber/web/Web'. 'silk/Silk'}!
+(Smalltalk packageAt: 'CornucopiaScorecardsApp') imports: {'amber/jquery/Wrappers-JQuery'}!
 Object subclass: #CornucopiaScorecardsApp
 	instanceVariableNames: ''
 	package: 'CornucopiaScorecardsApp'!
 
-!CornucopiaScorecardsApp methodsFor: 'action'!
+!CornucopiaScorecardsApp methodsFor: 'private-starting'!
 
-doAmberWith
-	| tag |
-	tag := (HTMLCanvas onJQuery: '#output-list' asJQuery) root.
-	tag with: [ :html | html li with: 'Amber Web #with: added me!!' ]
+initializeSupplierAutoComplete
+	'#suppliers' asJQuery autocomplete: #{ 'source' -> [ :req :res |
+		| matches matchStrings | 
+		matches := CrEggSupplier brandsStartingWith: req term.
+		matchStrings := matches collect: [ :e | e printString ].
+		res value: matchStrings ] }.
 !
 
-doJQueryAppend
-	'#output-list' asJQuery append: '<li>jQuery append added me!!</li>'
-!
-
-doSilkTAG
-	'#output-list' asSilk LI: 'Silk TAG: added me!!'
+listSuppliers
+	CrEggSupplier allAphabeticalByBrand do: [ :e | '#supplier-list' asJQuery append: '<li>', e printString, '</li>' ]
 ! !
 
 !CornucopiaScorecardsApp methodsFor: 'starting'!
 
 augmentPage
-	'#amber-with' asJQuery click: [ self doAmberWith ].
-	'#silk-tag' asSilk on: #click bind: [ self doSilkTAG ].
-	'#jquery-append' asJQuery click: [ self doJQueryAppend ]
+	self initializeSupplierAutoComplete.
+	self listSuppliers.
 ! !
 
 !CornucopiaScorecardsApp class methodsFor: 'starting'!

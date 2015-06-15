@@ -43,3 +43,10 @@ Start server with `amber serve` and go to `http://localhost:4000/` in your brows
 1. Compile JS `amberc -n "amber-cornucopiascorecards" [PackageName].st`
 2. Add entry to either devel.js or deploy.js
 3. `grunt devel`
+
+### Cleanup (already done)
+1. Remove Web and Silk from the main package #imports:
+1. bower uninstall amber-contrib-web silk amber-contrib-domite --save
+2. rm -fr bower_components
+3. bower install
+

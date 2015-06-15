@@ -6,19 +6,14 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Sean DeNigris" />
     <script type='text/javascript' src='the.js'></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   </head>
 
   <body>
-  <input id="suppliers">
-  <p>This is a sample app. It contains some
-  <a href="parts.html">batteries included</a>
-  and should be
-  <a href="uninstall.html">cleaned up</a>
-  once you start developing your own  app / lib.</p>
-  <button id="amber-with">Hello from TagBrush >> with:</button>
-  <button id="silk-tag">Hello from Silk >> TAG:</button>
-  <button id="jquery-append">Hello from jQuery append</button>
-  <ol id="output-list"></ol>
+  <p><a href="http://www.cornucopia.org/organic-egg-scorecard/">Cornucopia.org egg ratings</a> in an easily-searchable web UI. Just start typing a brand name and its rating will appear...</p>
+  <!-- Set default keyboard focus in HTML5 via autofocus per http://stackoverflow.com/questions/4166423/default-html-form-focus-without-javascript -->
+  <input id="suppliers" autofocus />
+  <ol id="supplier-list"></ol>
   <script type='text/javascript'>
       require(['app'], function (amber) {
           amber.initialize({

@@ -14,7 +14,6 @@ require.config({
     "bootstrap": "bower_components/bootstrap",
     "mousetrap": "bower_components/mousetrap/mousetrap",
     "jquery.blockUI": "bower_components/blockui/jquery.blockUI",
-    "silk": "bower_components/silk/src",
     "helios": "bower_components/helios/src",
     "helios/resources": "bower_components/helios/resources",
     "helios/index": "bower_components/helios/index",
@@ -23,7 +22,6 @@ require.config({
     "amber/legacy": "bower_components/amber-contrib-legacy/src",
     "amber/legacy/resources": "bower_components/amber-contrib-legacy/resources",
     "amber/jquery": "bower_components/amber-contrib-jquery/src",
-    "amber/domite": "bower_components/amber-contrib-domite/src",
     "amber": "bower_components/amber/support",
     "amber_core": "bower_components/amber/src",
     "amber-cornucopiascorecards": "src"
@@ -37,6 +35,7 @@ require.config({
     },
     "jquery-ui": {
       "deps": [
+        "jquery",
         "jquery",
         "jquery"
       ]
@@ -72,8 +71,6 @@ require.config({
       "amber-attic/Examples": "amber/legacy/Examples",
       "amber-attic/IDE": "amber/legacy/IDE",
       "amber-contrib-jquery/Wrappers-JQuery": "amber/jquery/Wrappers-JQuery",
-      "domite/DOMite": "amber/domite/DOMite",
-      "domite/DOMite-Tests": "amber/domite/DOMite-Tests",
       "amber_core/Kernel-ImportExport": "amber_core/Platform-ImportExport"
     }
   }

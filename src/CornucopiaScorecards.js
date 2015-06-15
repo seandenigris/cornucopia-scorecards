@@ -280,22 +280,22 @@ var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
-var $1,$2,$receiver;
-$1=self["@all"];
-if(($receiver = $1) == null || $receiver.isNil){
-self._downloadAll();
-} else {
-$1;
-};
+var $2,$1,$receiver;
 $2=self["@all"];
-return $2;
+if(($receiver = $2) == null || $receiver.isNil){
+self["@all"]=self._downloadAll();
+$1=self["@all"];
+} else {
+$1=$2;
+};
+return $1;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"all",{},$globals.CrEggSupplier.klass)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "all\x0a\x09\x22In the Pharo version, #downloadAll returns the collection, but I can't figure out how to do that in Amber.\x0a\x09I asked a question on the mailing list http://forum.world.st/Baffling-Difference-between-Workspace-and-Inspector-tt4832487.html\x0a\x09But for now, we'll just modify slightly. I guess we could also just tweak the Pharo version to set #all: in #downloadAll\x22\x0a\x09\x22^ all ifNil: [ all := self downloadAll ]\x22\x0a\x09all ifNil: [ self downloadAll ].\x0a\x09^ all",
+source: "all\x0a\x09^ all ifNil: [ all := self downloadAll ]",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["ifNil:", "downloadAll"]
@@ -367,12 +367,16 @@ var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
-var $1;
+var $2,$1;
 $1=$recv(self._allAphabeticalByBrand())._select_((function(e){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
-return $recv($recv(e)._brand())._beginsWith_(aString);
+$2=$recv($recv(e)._brand())._asLowercase();
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx2.sendIdx["asLowercase"]=1;
+//>>excludeEnd("ctx");
+return $recv($2)._beginsWith_($recv(aString)._asLowercase());
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx2) {$ctx2.fillBlock({e:e},$ctx1,1)});
 //>>excludeEnd("ctx");
@@ -384,10 +388,10 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["aString"],
-source: "brandsStartingWith: aString\x0a\x0a\x09^ self allAphabeticalByBrand select: [ :e | e brand beginsWith: aString ]",
+source: "brandsStartingWith: aString\x0a\x0a\x09^ self allAphabeticalByBrand select: [ :e | e brand asLowercase beginsWith: aString asLowercase ]",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: ["select:", "allAphabeticalByBrand", "beginsWith:", "brand"]
+messageSends: ["select:", "allAphabeticalByBrand", "beginsWith:", "asLowercase", "brand"]
 }),
 $globals.CrEggSupplier.klass);
 
