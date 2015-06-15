@@ -1,36 +1,92 @@
 Smalltalk createPackage: 'CornucopiaScorecards'!
-(Smalltalk packageAt: 'CornucopiaScorecards') imports: {'amber/jquery/Wrappers-JQuery'. 'amber/web/Web'. 'silk/Silk'}!
-Object subclass: #CornucopiaScorecards
-	instanceVariableNames: ''
+Object subclass: #CrEggSupplier
+	instanceVariableNames: 'brand company rating location marketArea totalScore'
 	package: 'CornucopiaScorecards'!
 
-!CornucopiaScorecards methodsFor: 'action'!
+!CrEggSupplier methodsFor: 'accessing'!
 
-doAmberWith
-	| tag |
-	tag := (HTMLCanvas onJQuery: '#output-list' asJQuery) root.
-	tag with: [ :html | html li with: 'Amber Web #with: added me!!' ]
+brand
+	^ brand
 !
 
-doJQueryAppend
-	'#output-list' asJQuery append: '<li>jQuery append added me!!</li>'
+brand: aString
+	brand := aString
 !
 
-doSilkTAG
-	'#output-list' asSilk LI: 'Silk TAG: added me!!'
+company
+	^ company
+!
+
+company: aString
+	company := aString
+!
+
+location
+	^ location
+!
+
+location: aString
+	location := aString
+!
+
+marketArea
+	^ marketArea
+!
+
+marketArea: aString
+	marketArea := aString
+!
+
+rating
+	^ rating
+!
+
+rating: anInteger
+	rating := anInteger
+!
+
+totalScore
+	^ totalScore
+!
+
+totalScore: anInteger
+	totalScore := anInteger
 ! !
 
-!CornucopiaScorecards methodsFor: 'starting'!
+!CrEggSupplier methodsFor: 'printing'!
 
-augmentPage
-	'#amber-with' asJQuery click: [ self doAmberWith ].
-	'#silk-tag' asSilk on: #click bind: [ self doSilkTAG ].
-	'#jquery-append' asJQuery click: [ self doJQueryAppend ]
+printOn: aStream
+	aStream
+		nextPutAll: brand;
+		nextPutAll: ' is rated a ';
+		print: rating
 ! !
 
-!CornucopiaScorecards class methodsFor: 'starting'!
+CrEggSupplier class instanceVariableNames: 'all'!
 
-start
-	self new augmentPage
+!CrEggSupplier class methodsFor: 'accessing'!
+
+all
+	"In the Pharo version, #downloadAll returns the collection, but I can't figure out how to do that in Amber.
+	I asked a question on the mailing list http://forum.world.st/Baffling-Difference-between-Workspace-and-Inspector-tt4832487.html
+	But for now, we'll just modify slightly. I guess we could also just tweak the Pharo version to set #all: in #downloadAll"
+	"^ all ifNil: [ all := self downloadAll ]"
+	all ifNil: [ self downloadAll ].
+	^ all
+!
+
+allAphabeticalByBrand
+	^ self all asOrderedCollection sort: [ :a :b | a brand < b brand ]
+!
+
+brandsStartingWith: aString
+
+	^ self allAphabeticalByBrand select: [ :e | e brand beginsWith: aString ]
+! !
+
+!CrEggSupplier class methodsFor: 'private'!
+
+all: aCollection
+	all := aCollection
 ! !
 

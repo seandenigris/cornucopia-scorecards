@@ -1,6 +1,6 @@
 # Cornucopia Scorecards
 
-CoPresents ratings (eggs only to start) in an easily-searchable web UI
+Presents ratings (eggs only to start) in an easily-searchable web UI
 
 ## Getting Started
 
@@ -38,3 +38,8 @@ grunt devel
 Developing the project (after brought alive):
  
 Start server with `amber serve` and go to `http://localhost:4000/` in your browser and follow the instructions
+
+### Importing packages (e.g. from Pharo)
+1. Compile JS `amberc -n "amber-cornucopiascorecards" [PackageName].st`
+2. Add entry to either devel.js or deploy.js
+3. `grunt devel`

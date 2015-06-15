@@ -1,6 +1,7 @@
 define([
     'amber/deploy',
     // --- packages to be deployed begin here ---
+    'amber-cornucopiascorecards/CornucopiaScorecardsApp',
     'amber-cornucopiascorecards/CornucopiaScorecards'
     // --- packages to be deployed end here ---
 ], function (amber) {
