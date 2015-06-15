@@ -20,6 +20,7 @@
             //used for all new packages in IDE
             'transport.defaultAmdNamespace': "amber-cornucopiascorecards"
           });
+          // Per http://stackoverflow.com/questions/1789945/how-can-i-check-if-one-string-contains-another-substring, later versions of JS can call include() (didn't work when I tried it in firebug), but old school is...
           var isDev = location.search.indexOf("isDev=true") > -1;
           if (isDev) require(["amber-ide-starter-dialog"], function (dlg) { dlg.start(); });
           amber.globals.CornucopiaScorecardsApp._start();
