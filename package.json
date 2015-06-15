@@ -1,0 +1,43 @@
+{
+  "name": "cornucopiascorecards",
+  "title": "Cornucopia Scorecards",
+  "description": "CoPresents ratings (eggs only to start) in an easily-searchable web UI",
+  "version": "0.1.0",
+  "homepage": "git://github.com/seandenigris/cornucopia-scorecards",
+  "author": {
+    "name": "Sean DeNigris",
+    "email": "cornucopiascorecards@clipperadams.com",
+    "url": "http://seandenigris.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/seandenigris/cornucopia-scorecards.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seandenigris/cornucopia-scorecards/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "git://github.com/seandenigris/cornucopia-scorecards/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "amber-dev": "^0.6.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-requirejs": "^0.4.4",
+    "grunt-execute": "^0.2.2",
+    "requirejs": "^2.1.15"
+  },
+  "keywords": [
+    "Amber",
+    "Smalltalk"
+  ]
+}
