@@ -50,3 +50,5 @@ Start server with `amber serve` and go to `http://localhost:4000/` in your brows
 2. rm -fr bower_components
 3. bower install
 
+## Deployment
+- Copy the.js, index.html, and egg_suppliers.json under /var/www (Apache document root on Ubuntu)
