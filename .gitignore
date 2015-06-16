@@ -6,6 +6,5 @@ egg_suppliers.json
 /deploy/
 the.js
 config.js
-/src/*.js
 
 /test_runner.js
