@@ -1,4 +1,5 @@
 Smalltalk createPackage: 'CornucopiaScorecards-Platform'!
+(Smalltalk packageAt: 'CornucopiaScorecards-Platform') imports: {'amber/jquery/Wrappers-JQuery'}!
 !CrEggSupplier class methodsFor: '*CornucopiaScorecards-Platform'!
 
 downloadAll

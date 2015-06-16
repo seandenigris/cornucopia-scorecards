@@ -1,6 +1,6 @@
 define("amber-cornucopiascorecards/CornucopiaScorecardsApp", ["amber/boot"
 //>>excludeStart("imports", pragmas.excludeImports);
-, "amber/jquery/Wrappers-JQuery"
+, "amber/jquery/Wrappers-JQuery", "jquery-ui"
 //>>excludeEnd("imports");
 , "amber_core/Kernel-Objects"], function($boot
 //>>excludeStart("imports", pragmas.excludeImports);
@@ -10,7 +10,7 @@ define("amber-cornucopiascorecards/CornucopiaScorecardsApp", ["amber/boot"
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 $core.addPackage('CornucopiaScorecardsApp');
 $core.packages["CornucopiaScorecardsApp"].innerEval = function (expr) { return eval(expr); };
-$core.packages["CornucopiaScorecardsApp"].imports = ["amber/jquery/Wrappers-JQuery"];
+$core.packages["CornucopiaScorecardsApp"].imports = ["amber/jquery/Wrappers-JQuery", "jquery-ui"];
 $core.packages["CornucopiaScorecardsApp"].transport = {"type":"amd","amdNamespace":"amber-cornucopiascorecards"};
 
 $core.addClass('CornucopiaScorecardsApp', $globals.Object, [], 'CornucopiaScorecardsApp');

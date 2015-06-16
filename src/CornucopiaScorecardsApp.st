@@ -1,5 +1,5 @@
 Smalltalk createPackage: 'CornucopiaScorecardsApp'!
-(Smalltalk packageAt: 'CornucopiaScorecardsApp') imports: {'amber/jquery/Wrappers-JQuery'}!
+(Smalltalk packageAt: 'CornucopiaScorecardsApp') imports: {'amber/jquery/Wrappers-JQuery'. 'jquery-ui'}!
 Object subclass: #CornucopiaScorecardsApp
 	instanceVariableNames: ''
 	package: 'CornucopiaScorecardsApp'!

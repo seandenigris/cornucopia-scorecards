@@ -4,6 +4,10 @@ Presents ratings (eggs only to start) in an easily-searchable web UI
 
 ## Getting Started
 
+### Install grunt (from http://gruntjs.com/getting-Started)
+1. Ensure npm up to date - `sudo sudo npm update -g npm`
+2. `sudo npm install -g grunt-cli`
+
 Install Amber and create an Amber project,
 as shown in [Amber Instructions](https://github.com/amber-smalltalk/amber#prerequisites).
 

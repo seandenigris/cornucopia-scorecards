@@ -1,7 +1,5 @@
 define([
     'amber/deploy',
-    'jquery',
-    'jquery-ui',
     // --- packages to be deployed begin here ---
     'amber-cornucopiascorecards/CornucopiaScorecardsApp',
     'amber-cornucopiascorecards/CornucopiaScorecards',

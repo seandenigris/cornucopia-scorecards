@@ -3,5 +3,6 @@
 .DS_Store
 *.swp
 egg_suppliers.json
+/deploy/
 
 /test_runner.js

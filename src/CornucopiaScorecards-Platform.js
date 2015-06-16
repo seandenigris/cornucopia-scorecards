@@ -1,7 +1,16 @@
-define("amber-cornucopiascorecards/CornucopiaScorecards-Platform", ["amber/boot", "amber_core/Kernel-Objects", "amber-cornucopiascorecards/CornucopiaScorecards", "amber_core/Kernel-Collections"], function($boot){"use strict";
+define("amber-cornucopiascorecards/CornucopiaScorecards-Platform", ["amber/boot"
+//>>excludeStart("imports", pragmas.excludeImports);
+, "amber/jquery/Wrappers-JQuery"
+//>>excludeEnd("imports");
+, "amber_core/Kernel-Objects", "amber_core/Kernel-Collections", "amber-cornucopiascorecards/CornucopiaScorecards"], function($boot
+//>>excludeStart("imports", pragmas.excludeImports);
+
+//>>excludeEnd("imports");
+){"use strict";
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 $core.addPackage('CornucopiaScorecards-Platform');
 $core.packages["CornucopiaScorecards-Platform"].innerEval = function (expr) { return eval(expr); };
+$core.packages["CornucopiaScorecards-Platform"].imports = ["amber/jquery/Wrappers-JQuery"];
 $core.packages["CornucopiaScorecards-Platform"].transport = {"type":"amd","amdNamespace":"amber-cornucopiascorecards"};
 $core.addMethod(
 $core.method({
