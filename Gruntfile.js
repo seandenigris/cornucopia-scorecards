@@ -61,7 +61,7 @@ module.exports = function (grunt) {
                         excludeDebugContexts: true
                     },
                     include: ['config', 'node_modules/requirejs/require', 'app'],
-                    out: "www/the.js"
+                    out: "deploy/the.js"
                 }
             },
             devel: {
