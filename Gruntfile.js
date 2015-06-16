@@ -9,9 +9,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-execute');
     grunt.loadNpmTasks('amber-dev');
+    grunt.loadNpmTasks('grunt-shell');
 
     // For grunt-shell
-    require('load-grunt-tasks')(grunt);
 
     // Default task.
     grunt.registerTask('default', ['amberc:all']);
