@@ -1,7 +1,7 @@
 {
   "name": "cornucopiascorecards",
   "title": "Cornucopia Scorecards",
-  "description": "CoPresents ratings (eggs only to start) in an easily-searchable web UI",
+  "description": "Presents ratings (eggs only to start) in an easily-searchable web UI",
   "version": "0.1.0",
   "homepage": "git://github.com/seandenigris/cornucopia-scorecards",
   "author": {
