@@ -10,11 +10,15 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-execute');
     grunt.loadNpmTasks('amber-dev');
 
+    // For grunt-shell
+    require('load-grunt-tasks')(grunt);
+
     // Default task.
     grunt.registerTask('default', ['amberc:all']);
+    grunt.registerTask('deploy-artifacts', ['shell']);
     grunt.registerTask('test', ['amdconfig:app', 'requirejs:test_runner', 'execute:test_runner', 'clean:test_runner']);
     grunt.registerTask('devel', ['amdconfig:app', 'requirejs:devel']);
-    grunt.registerTask('deploy', ['amdconfig:app', 'requirejs:deploy']);
+    grunt.registerTask('deploy', ['amdconfig:app', 'requirejs:deploy', 'deploy-artifacts']);
 
     // Project configuration.
     grunt.initConfig({
@@ -43,6 +47,12 @@ module.exports = function (grunt) {
 
         amdconfig: {app: {dest: 'config.js'}},
 
+        shell: {
+          target: {
+            command: './deploy-artifacts.sh'
+          }
+        },
+
         requirejs: {
             deploy: {
                 options: {
@@ -53,7 +63,7 @@ module.exports = function (grunt) {
                         excludeDebugContexts: true
                     },
                     include: ['config', 'node_modules/requirejs/require', 'app'],
-                    out: "the.js"
+                    out: "www/the.js"
                 }
             },
             devel: {

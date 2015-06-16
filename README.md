@@ -56,3 +56,8 @@ Start server with `amber serve` and go to `http://localhost:4000/` in your brows
 
 ## Deployment
 - Copy the.js, index.html, and egg_suppliers.json under /var/www (Apache document root on Ubuntu)
+
+### Build tools (already done)
+1. Install grunt-shell (for compressing and copying binary artifacts for release)
+	a. `npm install --save-dev load-grunt-tasks` ([per SO](http://stackoverflow.com/questions/28385685/grunt-error-cannot-find-module-load-grunt-tasks))
+	b. `npm install --save-dev grunt-shell` (https://github.com/sindresorhus/grunt-shell)
