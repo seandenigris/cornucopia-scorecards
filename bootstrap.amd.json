@@ -1,0 +1,10 @@
+{
+    "paths": {
+        "bootstrap": "dist/js/bootstrap"
+    },
+    "shim": {
+        "bootstrap": {
+            "deps": [ "jquery", "css!bootstrap/dist/css/bootstrap" ]
+        }
+    }
+}

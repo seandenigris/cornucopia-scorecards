@@ -1,0 +1,7 @@
+/* Primary Reference - http://www.w3schools.com/cssref/css3_pr_background.asp */
+body {
+  /* http://stackoverflow.com/questions/21006170/bootstrap-full-height-background-cover-image */
+  background-image: url("https://farm8.staticflickr.com/7212/7166328170_23d010c74a_b_d.jpg");
+  background-position: top right;
+  background-size: cover;
+}

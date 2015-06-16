@@ -11,8 +11,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('amber-dev');
     grunt.loadNpmTasks('grunt-shell');
 
-    // For grunt-shell
-
     // Default task.
     grunt.registerTask('default', ['amberc:all']);
     grunt.registerTask('deploy-artifacts', ['shell']);

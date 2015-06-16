@@ -1,32 +1,71 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
     <title>Cornucopia Scorecards</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!--meta http-equiv="content-type" content="text/html" /-->
     <meta name="author" content="Sean DeNigris" />
+
+    <!-- Bootstrap: Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/cover.css" rel="stylesheet">
+
+    <link href="css/eggscores.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
     <script type='text/javascript' src='the.js'></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   </head>
 
   <body>
-  <p><a href="http://www.cornucopia.org/organic-egg-scorecard/">Cornucopia.org egg ratings</a> in an easily-searchable web UI. Just start typing a brand name and its rating will appear...</p>
-  <!-- Set default keyboard focus in HTML5 via autofocus per http://stackoverflow.com/questions/4166423/default-html-form-focus-without-javascript -->
-  <input id="suppliers" autofocus />
-  <h5>The full list:</h5>
-  <ol id="supplier-list"></ol>
-  <script type='text/javascript'>
-      require(['app'], function (amber) {
-          amber.initialize({
-            //used for all new packages in IDE
-            'transport.defaultAmdNamespace': "amber-cornucopiascorecards"
-          });
-          // Per http://stackoverflow.com/questions/1789945/how-can-i-check-if-one-string-contains-another-substring, later versions of JS can call include() (didn't work when I tried it in firebug), but old school is...
-          var isDev = location.search.indexOf("dev=t") > -1;
-          if (isDev) require(["amber-ide-starter-dialog"], function (dlg) { dlg.start(); });
-          amber.globals.CornucopiaScorecardsApp._start();
-      });
-  </script>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand"><a href="http://www.cornucopia.org/organic-egg-scorecard/">Cornucopia.org Egg Ratings</a>... But Searchable!</h3>
+            </div>
+          </div>
+          <div class="inner cover">
+            <h1 class="cover-heading">Find Clean Eggs</h1>
+	      <p class="lead"><a href="http://www.cornucopia.org/organic-egg-scorecard/">Cornucopia.org egg ratings</a> in an easily-searchable web UI. Just start typing a brand name and its rating will appear...</p>
+            <p class="lead">
+	      <!-- Set default keyboard focus in HTML5 via autofocus per http://stackoverflow.com/questions/4166423/default-html-form-focus-without-javascript -->
+              <input type="text" class="form-control" id="suppliers" autofocus >
+	      <script type='text/javascript'>
+		require(['app'], function (amber) {
+		  amber.initialize({
+		    //used for all new packages in IDE
+		    'transport.defaultAmdNamespace': "amber-cornucopiascorecards"
+		  });
+		  // Per http://stackoverflow.com/questions/1789945/how-can-i-check-if-one-string-contains-another-substring, later versions of JS can call include() (didn't work when I tried it in firebug), but old school is...
+		  var isDev = location.search.indexOf("dev=t") > -1;
+		  if (isDev) require(["amber-ide-starter-dialog"], function (dlg) { dlg.start(); });
+		  amber.globals.CornucopiaScorecardsApp._start();
+		});
+	      </script>
+            </p>
+          </div>
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Powered by <a href="https://github.com/amber-smalltalk/amber">Amber Smalltalk</a>.</br>
+              <a href="http://getbootstrap.com/">Bootstrap</a> cover template by <a href="https://twitter.com/mdo">@mdo</a>.</br>
+              Photo credit: <a href="https://www.flickr.com/photos/adamjackson/7166328170/">"My Backyard Chickens"</a> by adamjackson1984 is licensed under CC BY 2.0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
-
 </html>
