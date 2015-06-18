@@ -1,5 +1,6 @@
 {
     "paths": {
-        "amber-cornucopiascorecards": "src"
+        "amber-cornucopiascorecards": "src",
+        "amber-cornucopiascorecards/css": "css"
     }
 }

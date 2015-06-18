@@ -2,6 +2,6 @@
 body {
   /* http://stackoverflow.com/questions/21006170/bootstrap-full-height-background-cover-image */
   background-image: url("https://farm8.staticflickr.com/7212/7166328170_23d010c74a_b_d.jpg");
-  background-position: top right;
+  background-position: top right; /* bottom left is less interesting part of the image */
   background-size: cover;
 }

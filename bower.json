@@ -29,6 +29,8 @@
   "dependencies": {
     "amber": "^0.14.14",
     "amber-contrib-jquery": ">=0.1.0",
+    "bootstrap": "~3.3.5",
+    "jquery-ui": "~1.11.4",
     "amber-contrib-web": "~0.1.1"
   },
   "devDependencies": {
